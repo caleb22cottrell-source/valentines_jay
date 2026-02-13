@@ -1,0 +1,182 @@
+body {
+    margin: 0;
+    font-family: Georgia, serif;
+}
+
+/* Centered page for envelope and Valentine */
+.centered-page {
+    height: 100vh;
+    background: linear-gradient(135deg, #1a002b, #3d0066);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Envelope */
+.envelope-wrapper {
+    position: relative;
+    width: 320px;
+    height: 220px;
+    cursor: pointer;
+}
+.envelope {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #7b2cbf;
+    border-radius: 12px;
+}
+.flap {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #9d4edd;
+    clip-path: polygon(0 0, 50% 60%, 100% 0);
+}
+.from-text {
+    color: white;
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+/* Note Card */
+.note-card {
+    width: 800px;
+    max-width: 90%;
+    background: white;
+    padding: 80px;
+    border-radius: 25px;
+    text-align: center;
+}
+.note-card p {
+    font-size: 24px;
+    line-height: 1.8;
+}
+.note-card button {
+    margin-top: 40px;
+    padding: 15px 35px;
+    background: #7b2cbf;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+}
+
+/* Valentine Page */
+.valentine-container {
+    text-align: center;
+    color: white;
+    max-width: 800px;
+}
+.buttons button {
+    margin: 10px;
+    padding: 15px 35px;
+    font-size: 18px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+}
+#yesBtn { background: #7b2cbf; color: white; }
+#noBtn { background: #444; color: white; }
+.error-box {
+    margin-top: 20px;
+    background: white;
+    color: #7b2cbf;
+    padding: 20px;
+    border-radius: 12px;
+    display: none;
+}
+
+/* Falling hearts */
+.falling {
+    position: fixed;
+    top: -50px;
+    font-size: 28px;
+    animation: fall linear forwards;
+}
+@keyframes fall {
+    to { transform: translateY(110vh); }
+}
+
+/* Collage Page */
+.collage-page {
+    background: linear-gradient(135deg, #1a002b, #3d0066);
+    text-align: center;
+    color: white;
+    padding: 40px;
+}
+.collage-title { margin-bottom: 30px; }
+.collage {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+.collage img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+}
+
+/* ------------------------ */
+/* Overlay for "Click Next" message */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 192, 203, 0.7); /* light pink transparent */
+    backdrop-filter: blur(0px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 1s ease, backdrop-filter 1s ease;
+    z-index: 100;
+}
+
+.overlay.show {
+    opacity: 1;
+    pointer-events: all;
+    backdrop-filter: blur(8px);
+}
+
+.overlay-content {
+    text-align: center;
+    background: white;
+    padding: 40px 60px;
+    border-radius: 25px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+
+.overlay-content h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #7b2cbf;
+    font-family: Georgia, serif;
+}
+
+.overlay-content button {
+    padding: 15px 35px;
+    font-size: 18px;
+    cursor: pointer;
+    border: none;
+    border-radius: 12px;
+    background-color: #7b2cbf;
+    color: white;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.overlay-content button:hover {
+    transform: scale(1.1);
+    background-color: #9d4edd;
+}
+
+/* Optional: Smooth blur transition for the main page */
+body.blur {
+    filter: blur(6px);
+    transition: filter 1s ease;
+}
